@@ -12,7 +12,8 @@ os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
 
 class VideoCamera(object):
-    emo_list = ["neutral", "anger", "contempt", "disgust", "fear", "happy", "sadness", "surprise"]
+    # emo_list = ["neutral", "anger", "contempt", "disgust", "fear", "happy", "sadness", "surprise"]
+    emo_list = ["NEUTRAL", "ANGER", "CONTEMPT", "DISGUST", "FEAR", "HAPPY", "SADNESS", "SURPRISE"]
 
     def __init__(self):
         self.cv2 = cv2
@@ -87,7 +88,7 @@ class VideoCamera(object):
                 if result is not None:
                     # write the different emotions and have a bar to indicate probabilities for each class
                     for index, emotion in enumerate(self.emo_list):
-                        self.cv2.putText(image, emotion, (10, index * 20 + 20), self.font, 0.5, (0, 255, 0), 1)
+                        self.cv2.putText(image, emotion, (10, index * 20 + 20), self.font, 0.5, (0, 0, 255), 2)
                         self.cv2.rectangle(image, (130, index * 20 + 10),
                                            (130 + int(result[index] * 100), (index + 1) * 20 + 4),
                                            (255, 0, 0), -1)
@@ -121,7 +122,7 @@ class VideoCamera(object):
                                 max_area_face = face
 
                         (x, y, w, h) = max_area_face
-                        image = self.cv2.rectangle(image, (x, y - 50), (x + w, y + h + 10), (255, 0, 0), 2)
+                        image = self.cv2.rectangle(image, (x, y - 50), (x + w, y + h + 10), (255, 255, 255), 2)
                         # self.cv2.imwrite(self.out_file.format(self.file_), image)
                         # self.file_ += 1
                         # self.video_writer.write(image)
