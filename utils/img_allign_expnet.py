@@ -1,9 +1,19 @@
 import cv2
 import dlib
 
-from utils.utills import extract_left_eye_center, extract_right_eye_center, get_rotation_matrix, crop_image
+from utils.utills import extract_left_eye_center, extract_right_eye_center, angle_between_2_points, crop_image
 
 emo_list = ["neutral", "anger", "contempt", "disgust", "fear", "happy", "sadness", "surprise"]
+
+
+def get_rotation_matrix(p1, p2):
+    angle = angle_between_2_points(p1, p2)
+    x1, y1 = p1
+    x2, y2 = p2
+    xc = (x1 + x2) // 2
+    yc = (y1 + y2) // 2
+    M = cv2.getRotationMatrix2D((xc, yc), angle, 1)
+    return M
 
 
 def img_align(pathname, label=None):
