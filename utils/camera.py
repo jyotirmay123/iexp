@@ -49,7 +49,7 @@ class VideoCamera(object):
         self.feelings_faces = []
         # append the list with the emoji images
         for index, emotion in enumerate(self.emo_list):
-            self.feelings_faces.append(self.cv2.imread('./static/images/emojis/' + emotion + '.png', -1))
+            self.feelings_faces.append(self.cv2.imread('./static/images/emojis/' + emotion.lower() + '.png', -1))
 
     def __del__(self):
         # self.is_camera_open = False
