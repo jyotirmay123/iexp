@@ -64,10 +64,10 @@ class VideoCamera(object):
 
     def load_model(self):
         model_p2 = ExpNet_p2(useCuda=False, gpuDevice=0)
-        # model_p2.load_state_dict(torch.load(os.path.join('./model', 'expnet_p2.pt'),
-        #                                     map_location=lambda storage, loc: storage))
-        model_p2.load_state_dict(torch.hub.load_state_dict_from_url(os.path.join('./model', 'expnet_p2.pt'),
+        model_p2.load_state_dict(torch.load(os.path.join('./model', 'expnet_p2.pt'),
                                             map_location=lambda storage, loc: storage))
+        # model_p2.load_state_dict(torch.hub.load_state_dict_from_url(os.path.join('./model', 'expnet_p2.pt'),
+        #                                     map_location=lambda storage, loc: storage))
 
         return model_p2
 
