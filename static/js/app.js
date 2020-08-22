@@ -65,6 +65,7 @@
 let loadCam = async () => {
     const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
     // const localVideo = document.getElementById("local-video");
+    console.log("calling");
     if (v) {
         v.srcObject = stream;
     }
