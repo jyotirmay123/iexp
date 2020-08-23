@@ -26,7 +26,7 @@
 
     //create a canvas for drawing object boundaries
     let drawCanvas = document.createElement('canvas');
-    document.body.appendChild(drawCanvas);
+    document.getElementById("paste-canvas").appendChild(drawCanvas);
     let drawCtx = drawCanvas.getContext("2d");
 
 
@@ -87,7 +87,7 @@ async function drawBoxes(object) {
 
     if(object.max_index !== null) {
         let fontSize=24
-        drawTextBG(drawCtx, emo_list[object.max_index], `bold ${fontSize}px verdana, sans-serif`, x + 5, y + 20, fontSize);
+        drawTextBG(drawCtx, emo_list[object.max_index], `bold ${fontSize}px verdana, sans-serif`, x + 25, y + 25, fontSize);
     }
 
     if(object.face !== null) {
